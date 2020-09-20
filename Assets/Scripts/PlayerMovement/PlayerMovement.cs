@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour {
 			// player can only move in right direction - should not be problem if camera places player in leftside of screen
 
 			// use coroutine to determine max speed - the max speed will change dynamically based on startup animation
-			float target_x = Mathf.Max(Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * 5).x, transform.position.x);
+			float target_x = Mathf.Max(Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * 20).x, transform.position.x);
 			transform.position = new Vector2(target_x, transform.position.y);
 
 			// move camera so player is followed
