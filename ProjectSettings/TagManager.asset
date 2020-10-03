@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Effects
   - 
   - 
   - 
@@ -40,4 +40,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Sky
+    uniqueID: 3203024685
+    locked: 0
+  - name: Back Grass
+    uniqueID: 3662149965
+    locked: 0
+  - name: Front Grass
+    uniqueID: 3438688653
+    locked: 0
+  - name: Heat
+    uniqueID: 2354065065
+    locked: 0
+  - name: Road
+    uniqueID: 2665349255
+    locked: 0
+  - name: Player
+    uniqueID: 1485236965
     locked: 0
