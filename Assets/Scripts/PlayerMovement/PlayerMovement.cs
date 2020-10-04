@@ -13,8 +13,13 @@ public class PlayerMovement : MonoBehaviour {
 	private Transform bag;
 	private Transform bells;
 
+	public AudioSource audioSource;
+	public AudioClip cartStartUpClip;
+	public AudioClip cartMoveClip;
+
 	private Animator[] animators;
 	private Animator vendorAnim;
+	private bool startUp;
 
 	void Start() {
 		vendor = transform.Find("Vendor");
@@ -26,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		vendorAnim = vendor.GetComponent<Animator>();
 
+		startUp = false;
 
 		velocity_threshold = .50f;
 	}
@@ -51,11 +57,24 @@ public class PlayerMovement : MonoBehaviour {
 
 				// get velocity
 				x_velocity = (transform.position.x - x_prev_pos) / (Time.deltaTime * 20);
+
+				// play moving sound continously
+				if (!audioSource.isPlaying) {
+					audioSource.clip = cartMoveClip;
+					audioSource.Play();
+				}
+			} else if (vendorAnim.GetCurrentAnimatorStateInfo(0).IsName("vendor_push")){
+				if (!audioSource.isPlaying && !startUp) {
+					audioSource.PlayOneShot(cartStartUpClip, 0.5f);
+					startUp = true;
+				}
 			}
 
 		} else {
 		// apply friction tbd
 			x_velocity = 0;
+			audioSource.Stop();
+			startUp = false;
 		}
 
 		// play animations if velocity is over a certain value

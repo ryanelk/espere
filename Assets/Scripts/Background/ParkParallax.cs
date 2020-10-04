@@ -13,7 +13,7 @@ public class ParkParallax : MonoBehaviour
     void Start()
     {
         start_pos = transform.position.x;
-        length = GetComponent<SpriteRenderer>().bounds.size.x;
+        length = GetComponent<SpriteRenderer>().bounds.size.x * .95f;
 		Debug.Log("Start Position: " + start_pos);
 		Debug.Log("Length: " + length);
 
